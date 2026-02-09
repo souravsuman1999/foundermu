@@ -74,24 +74,87 @@ const founders = [
     name: "Aman Gupta",
     role: "General Partner",
     image: "/amangupta.png",
-    logo: "/boat.png"
+    logo: "/boat.png",
+    linkedin: "https://www.linkedin.com/in/aman-gupta-7217a515/"
   },
   {
     name: "Pratham Mittal",
     role: "General Partner",
     image: "/prathammittal.png",
-    logo: "/mu.png"
+    logo: "/mu.png",
+    linkedin: "https://www.linkedin.com/in/prathammittal/"
   }
 ];
 
 const mentors = [
-  { name: "Vineeta Singh", title: "CEO, SUGAR Cosmetics" },
-  { name: "Ashneer Grover", title: "Founder, BharatPe" },
-  { name: "Ghazal Alagh", title: "Co-founder, Mamaearth" },
-  { name: "Ritesh Agarwal", title: "Founder, OYO" },
-  { name: "Kunal Shah", title: "Founder, CRED" },
-  { name: "Namita Thapar", title: "ED, Emcure Pharma" }
+  {
+    name: "Vatsalya Tandon",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/1.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/1.webp"
+  },
+  {
+    name: "Divya Gupta",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/2.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/2.webp"
+  },
+  {
+    name: "Sahil Kumrah",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/3.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/3.webp"
+  },
+  {
+    name: "Niyati Raval",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/4.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/4.webp"
+  },
+  {
+    name: "Alok Anand",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/5.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/5.webp"
+  },
+  {
+    name: "Shubham Jain",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/6.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/6.webp"
+  },
+  {
+    name: "Jayant Singhal",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/7.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/7.webp"
+  },
+  {
+    name: "Archit Bhargav",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/8.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/8.webp"
+  },
+  {
+    name: "Gautam Marwah",
+    title: "Investment Proffessional",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/9.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/9.webp"
+  },
+  {
+    name: "Saksham Kotiya",
+    title: "Head of Investments & Entrepreneurship",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/10.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/10.webp"
+  },
+  {
+    name: "Sumit Vijapure",
+    title: "EIR",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/11.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/10.webp"
+  }
 ];
+
 
 const residencyHighlights = [
   "Modern Workspace",
@@ -243,11 +306,14 @@ const faq = [
 
 function BulletList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-3 text-sm text-white/70">
+    <ul className="space-y-1.5 text-sm text-white/70">
       {items.map((t) => (
-        <li key={t} className="flex gap-3">
-          <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20">
-            <CheckIcon className="h-4 w-4" />
+        <li
+          key={t}
+          className="group flex gap-3 rounded-xl px-2 py-2 transition-colors duration-200 hover:bg-white/[0.04]"
+        >
+          <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20 transition-[transform,box-shadow,background-color,border-color] duration-200 group-hover:-translate-y-0.5 group-hover:bg-fu/15 group-hover:ring-fu/35 group-hover:shadow-glow">
+            <CheckIcon className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
           </span>
           <span>{t}</span>
         </li>
@@ -409,8 +475,15 @@ export default function Page() {
           {founders.map((p) => (
             <Card
               key={p.name}
-              className="group overflow-hidden transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform hover:-translate-y-1 hover:shadow-glow hover:ring-fu/35"
+              className="group cursor-pointer overflow-hidden transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform hover:-translate-y-1 hover:shadow-glow hover:ring-fu/35"
             >
+              <a
+                href={p.linkedin}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`Open ${p.name} on LinkedIn`}
+                className="absolute inset-0 z-10"
+              />
               <div className="relative aspect-[16/11] overflow-hidden">
                 <img
                   src={p.image}
@@ -418,21 +491,32 @@ export default function Page() {
                   className="h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/0" />
+                <span
+                  className="pointer-events-none absolute right-3 top-3 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/35 ring-1 ring-white/15 backdrop-blur transition-colors duration-200 group-hover:bg-black/45 group-hover:ring-fu/35"
+                  aria-hidden="true"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5 fill-white/85 transition-colors duration-200 group-hover:fill-fu"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.476-.9 1.637-1.85 3.369-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.115 20.452H4.558V9h1.557v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" />
+                  </svg>
+                </span>
               </div>
 
-              <div className="flex items-center justify-between gap-4 p-6">
-                <div>
-                  <div className="text-lg font-semibold text-white">
+              <div className="flex flex-col items-center gap-3 p-6 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:text-left">
+                <div className="w-full sm:w-auto">
+                  <div className="text-xl font-semibold text-white sm:text-lg">
                     {p.name}
                   </div>
-                  <div className="mt-1 text-sm font-semibold text-fu">
+                  <div className="mt-1 text-base font-semibold text-fu sm:text-sm">
                     {p.role}
                   </div>
                 </div>
                 <img
                   src={p.logo}
                   alt=""
-                  className="h-9 w-auto opacity-90"
+                  className="mx-auto h-10 w-auto opacity-90 sm:mx-0 sm:h-9"
                 />
               </div>
             </Card>
@@ -448,11 +532,25 @@ export default function Page() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {mentors.map((m) => (
             <Card key={m.name} className="h-full">
+              <div className="relative aspect-[13/11] overflow-hidden">
+                <img
+                  src={m.image}
+                  alt={m.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/0" />
+              </div>
+
               <div className="p-6">
-                <div className="text-base font-semibold text-white">
-                  {m.name}
-                </div>
+                <div className="text-base font-semibold text-white">{m.name}</div>
                 <div className="mt-2 text-sm text-white/65">{m.title}</div>
+                <img
+                  src={m.logo}
+                  alt=""
+                  loading="lazy"
+                  className="mt-4 h-8 w-auto opacity-90"
+                />
               </div>
             </Card>
           ))}
@@ -465,25 +563,47 @@ export default function Page() {
       >
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <Card className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-fu/12 via-white/0 to-white/0" />
+            <div className="absolute inset-0 bg-gradient-to-br from-fu/18 via-white/0 to-white/0" />
+            <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.10)_1px,transparent_0)] [background-size:22px_22px]" />
+
             <div className="relative p-8">
-              <div className="text-sm font-semibold text-white/70">
-                Modern Campus
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-white/70 ring-1 ring-white/10">
+                  Modern Campus
+                </span>
+                <span className="text-xs text-white/45">•</span>
+                <span className="text-xs font-medium text-white/55">
+                  Gurugram, Haryana
+                </span>
               </div>
-              <div className="mt-2 text-2xl font-semibold text-white">
-                Co-working Spaces • Strategy Sessions • Build & Execute
+
+              <div className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white">
+                Co-working spaces for builders. Strategy sessions for clarity. A campus designed to execute.
               </div>
-              <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-white/70 md:grid-cols-4">
-                {["Modern Workspace", "Co-working Spaces", "Strategy Sessions", "Build & Execute"].map(
-                  (i) => (
-                    <div
-                      key={i}
-                      className="rounded-xl bg-white/5 p-3 ring-1 ring-white/10"
-                    >
-                      {i}
+
+              <div className="mt-7 grid grid-cols-2 gap-3 text-sm text-white/70 md:grid-cols-4">
+                {[
+                  "Modern Workspace",
+                  "Co-working Spaces",
+                  "Strategy Sessions",
+                  "Build & Execute"
+                ].map((i) => (
+                  <div
+                    key={i}
+                    className={[
+                      "group/pill rounded-2xl bg-white/[0.035] p-4 ring-1 ring-white/10",
+                      "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
+                      "hover:-translate-y-0.5 hover:bg-white/[0.055] hover:ring-fu/30 hover:shadow-glow"
+                    ].join(" ")}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="font-medium text-white/80">{i}</span>
+                      <span className="text-white/35 transition duration-200 group-hover/pill:text-fu/80">
+                        →
+                      </span>
                     </div>
-                  )
-                )}
+                  </div>
+                ))}
               </div>
             </div>
           </Card>
