@@ -29,24 +29,24 @@ const heroBadges = [
 ];
 
 const stats = [
-  { value: "90 Days", label: "Duration" },
-  { value: "20 Startups", label: "Founders Selected" },
-  { value: "₹20 Lakhs", label: "Funding Per Founder" },
-  { value: "YC/Shark Tank Ready", label: "Outcome" }
+  { value: "90 Days", label: "Duration", Icon: ClockIcon },
+  { value: "20 Startups", label: "Founders Selected", Icon: UsersIcon },
+  { value: "₹20 Lakhs", label: "Funding Per Founder", Icon: RupeeIcon },
+  { value: "YC/Seed Ready", label: "Outcome", Icon: TrophyIcon }
 ];
 
 const youAre = [
   "You want to leave your job and build",
   "You have an idea (or not—that’s okay too)",
-  "You’re under 25 and hungry to start",
+  "You are hungry to start",
   "You need capital, mentors & structure"
 ];
 
 const youGet = [
   "₹20 Lakhs—guaranteed if selected",
   "90 days of intense execution",
-  "Aman + operator mentors guiding you",
-  "Your launchpad to YC & Shark Tank"
+  "Access to Operator Mentors",
+  "Your launchpad to YC/Seed Ready"
 ];
 
 const safeTerms = [
@@ -60,8 +60,8 @@ const safeTerms = [
     subtitle: "Valuation caps that protect you in future rounds."
   },
   {
-    title: "No Board Seats",
-    subtitle: "You keep full control of your company."
+    title: "Community",
+    subtitle: "Access to 100+ VCs and operators."
   },
   {
     title: "Founder-Friendly",
@@ -87,6 +87,18 @@ const founders = [
 ];
 
 const mentors = [
+  {
+    name: "Saksham Kotiya",
+    title: "Head of Investments & Entrepreneurship",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/10.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/10.webp"
+  },
+  {
+    name: "Sumit Vijapure",
+    title: "EIR",
+    image: "https://images.mastersunion.link/uploads/09022026/v1/11.webp",
+    logo: "https://images.mastersunion.link/uploads/09022026/v2/10.webp"
+  },
   {
     name: "Vatsalya Tandon",
     title: "Investment Proffessional",
@@ -140,19 +152,8 @@ const mentors = [
     title: "Investment Proffessional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/9.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/9.webp"
-  },
-  {
-    name: "Saksham Kotiya",
-    title: "Head of Investments & Entrepreneurship",
-    image: "https://images.mastersunion.link/uploads/09022026/v1/10.webp",
-    logo: "https://images.mastersunion.link/uploads/09022026/v2/10.webp"
-  },
-  {
-    name: "Sumit Vijapure",
-    title: "EIR",
-    image: "https://images.mastersunion.link/uploads/09022026/v1/11.webp",
-    logo: "https://images.mastersunion.link/uploads/09022026/v2/10.webp"
   }
+
 ];
 
 
@@ -161,6 +162,29 @@ const residencyHighlights = [
   "Cafeteria",
   "High-Speed Internet",
   "Gurugram, Haryana"
+];
+
+const campusUsps = [
+  {
+    title: "Co-working Spaces",
+    image:
+      "https://images.mastersunion.link/uploads/29102025/v1/businessImg_3.webp"
+  },
+  {
+    title: "Modern Campus",
+    image:
+      "https://images.mastersunion.link/uploads/02122025/v1/Frame1321318022.webp"
+  },
+  {
+    title: "Pitch Practice",
+    image:
+      "https://images.mastersunion.link/uploads/27092025/v1/P10694061.webp"
+  },
+  {
+    title: "Strategy Sessions",
+    image:
+      "https://images.mastersunion.link/uploads/09022026/v1/Screenshot20260209at8.54.08PM.webp"
+  }
 ];
 
 const timeline = [
@@ -198,7 +222,7 @@ const timeline = [
     step: "06",
     title: "Demo Day",
     meta: "Pitch Day",
-    desc: "Present to VCs, prepare for YC/Shark Tank."
+    desc: "Present to VCs, prepare for YC/Seed Ready."
   }
 ];
 
@@ -300,7 +324,7 @@ const faq = [
   },
   {
     q: "What happens after the 90 days?",
-    a: "You’ll be prepared for YC, Shark Tank India, or other top accelerators. Strong performers may receive follow-on investment from Aman Gupta or Masters’ Union. You’ll also have lifetime access to the MU + Operator network."
+    a: "You’ll be prepared for YC/Seed Ready, or other top accelerators. Strong performers may receive follow-on investment from Aman Gupta or Masters’ Union. You’ll also have lifetime access to the MU + Operator network."
   }
 ];
 
@@ -405,10 +429,20 @@ export default function Page() {
                 key={s.label}
                 className="rounded-[var(--radius)] bg-white/5 p-6 ring-1 ring-white/10"
               >
-                <div className="text-lg font-semibold text-white md:text-xl">
-                  {s.value}
+                <div className="flex items-center gap-3">
+                  <span
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20"
+                    aria-hidden="true"
+                  >
+                    <s.Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <div className="text-lg font-semibold text-white md:text-xl">
+                      {s.value}
+                    </div>
+                    <div className="mt-1 text-sm text-white/60">{s.label}</div>
+                  </div>
                 </div>
-                <div className="mt-1 text-sm text-white/60">{s.label}</div>
               </div>
             ))}
           </div>
@@ -558,61 +592,64 @@ export default function Page() {
       </Section>
 
       <Section
-        eyebrow="Your Home for 90 Days"
-        title="Work, live, and build at the Masters' Union campus in Gurugram."
+        title="Your Home for 90 Days"
+        description={
+          <span className="inline-flex items-center justify-center gap-2">
+            <span className="hidden h-8 w-8 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20 md:grid">
+              <CompassIcon className="h-4 w-4" />
+            </span>
+            <span>
+              Work, live, and build at the Masters&apos; Union campus in Gurugram
+            </span>
+          </span>
+        }
+        center
       >
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <Card className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-fu/18 via-white/0 to-white/0" />
-            <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.10)_1px,transparent_0)] [background-size:22px_22px]" />
-
-            <div className="relative p-8">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-white/70 ring-1 ring-white/10">
-                  Modern Campus
-                </span>
-                <span className="text-xs text-white/45">•</span>
-                <span className="text-xs font-medium text-white/55">
-                  Gurugram, Haryana
-                </span>
+        <div className="-mx-2 flex gap-4 overflow-x-auto px-2 pb-2 hide-scrollbar md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
+          {campusUsps.map((u) => (
+            <div
+              key={u.title}
+              className={[
+                "group relative min-w-[280px] shrink-0 overflow-hidden rounded-3xl bg-white/[0.02] ring-1 ring-white/10 md:min-w-0",
+                "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
+                "hover:-translate-y-1 hover:ring-fu/30 hover:shadow-glow"
+              ].join(" ")}
+            >
+              <div className="relative h-[180px] w-full sm:h-[220px]">
+                <img
+                  src={u.image}
+                  alt={u.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.04]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/0" />
               </div>
-
-              <div className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white">
-                Co-working spaces for builders. Strategy sessions for clarity. A campus designed to execute.
-              </div>
-
-              <div className="mt-7 grid grid-cols-2 gap-3 text-sm text-white/70 md:grid-cols-4">
-                {[
-                  "Modern Workspace",
-                  "Co-working Spaces",
-                  "Strategy Sessions",
-                  "Build & Execute"
-                ].map((i) => (
-                  <div
-                    key={i}
-                    className={[
-                      "group/pill rounded-2xl bg-white/[0.035] p-4 ring-1 ring-white/10",
-                      "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
-                      "hover:-translate-y-0.5 hover:bg-white/[0.055] hover:ring-fu/30 hover:shadow-glow"
-                    ].join(" ")}
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="font-medium text-white/80">{i}</span>
-                      <span className="text-white/35 transition duration-200 group-hover/pill:text-fu/80">
-                        →
-                      </span>
-                    </div>
-                  </div>
-                ))}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5">
+                <div className="text-lg font-semibold tracking-tight text-white drop-shadow-sm">
+                  {u.title}
+                </div>
               </div>
             </div>
-          </Card>
-          <Card>
-            <CardHeader title="What’s included" />
-            <CardContent>
-              <BulletList items={residencyHighlights} />
-            </CardContent>
-          </Card>
+          ))}
+        </div>
+
+        <div className="mt-8 -mx-2 flex items-center gap-3 overflow-x-auto px-2 pb-2 hide-scrollbar md:mx-0 md:flex-wrap md:justify-center md:overflow-visible md:px-0 md:pb-0">
+          {[
+            { label: residencyHighlights[0], Icon: ChipIcon },
+            { label: residencyHighlights[1], Icon: SparkleIcon },
+            { label: residencyHighlights[2], Icon: TrendingUpIcon },
+            { label: residencyHighlights[3], Icon: CompassIcon }
+          ].map(({ label, Icon }) => (
+            <div
+              key={label}
+              className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-white/[0.03] px-4 py-2 text-sm text-white/70 ring-1 ring-white/10 backdrop-blur"
+            >
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20">
+                <Icon className="h-4 w-4" />
+              </span>
+              <span className="font-medium text-white/75">{label}</span>
+            </div>
+          ))}
         </div>
       </Section>
 
