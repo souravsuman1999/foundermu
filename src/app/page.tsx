@@ -1,8 +1,25 @@
 import { Button } from "@/components/Button";
 import { Card, CardContent, CardHeader } from "@/components/Cards";
 import { Faq } from "@/components/Faq";
+import {
+  ArrowRightIcon,
+  CalendarIcon,
+  CheckIcon,
+  ChipIcon,
+  ClockIcon,
+  CompassIcon,
+  RocketIcon,
+  RupeeIcon,
+  SparkleIcon,
+  TargetIcon,
+  TrophyIcon,
+  TrendingUpIcon,
+  UsersIcon
+} from "@/components/Icons";
 import { Navbar } from "@/components/Navbar";
 import { Section } from "@/components/Section";
+
+const APPLY_URL = "https://mastersunion.org/venture-form";
 
 const heroBadges = [
   "₹20 Lakhs via SAFE",
@@ -56,14 +73,14 @@ const founders = [
   {
     name: "Aman Gupta",
     role: "General Partner",
-    bio: "Co-founder of boAt, Shark Tank India Judge. Built India’s #1 audio brand from zero to ₹3,000 Cr.",
-    link: "#"
+    image: "/amangupta.png",
+    logo: "/boat.png"
   },
   {
     name: "Pratham Mittal",
     role: "General Partner",
-    bio: "Founder of Masters’ Union. Building India’s new-age business school with industry leaders.",
-    link: "#"
+    image: "/prathammittal.png",
+    logo: "/mu.png"
   }
 ];
 
@@ -158,7 +175,10 @@ const operatorModel = [
     title: "Strategic Guide",
     desc: "Direction & prioritisation from Aman and mentors."
   },
-  { title: "Execution Partner", desc: "Weekly progress reviews & hands-on support." },
+  {
+    title: "Execution Partner",
+    desc: "Weekly progress reviews & hands-on support."
+  },
   { title: "Growth Catalyst", desc: "Help you hit revenue or MVP milestones." }
 ];
 
@@ -226,7 +246,9 @@ function BulletList({ items }: { items: string[] }) {
     <ul className="space-y-3 text-sm text-white/70">
       {items.map((t) => (
         <li key={t} className="flex gap-3">
-          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fu" />
+          <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20">
+            <CheckIcon className="h-4 w-4" />
+          </span>
           <span>{t}</span>
         </li>
       ))}
@@ -252,7 +274,7 @@ export default function Page() {
         <div className="container relative py-16 md:py-24">
           <div className="mx-auto max-w-4xl text-center noise">
             <div className="inline-flex items-center justify-center rounded-full bg-fu/10 px-4 py-2 text-xs font-semibold text-fu ring-1 ring-fu/20">
-              <span className="mr-2">✨</span>
+              <SparkleIcon className="mr-2 text-fu" />
               Pre-YC • Pre-Shark Tank • Your First Yes
             </div>
 
@@ -272,7 +294,12 @@ export default function Page() {
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-3">
-              <Button variant="primary" href="#apply">
+              <Button
+                variant="primary"
+                href={APPLY_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Apply Now <span aria-hidden="true">→</span>
               </Button>
               <Button variant="secondary" href="#timeline">
@@ -348,7 +375,12 @@ export default function Page() {
             20 founders. <span className="text-fu">₹20 Lakhs</span> each. Every
             quarter.
           </div>
-          <Button variant="primary" href="#apply">
+          <Button
+            variant="primary"
+            href={APPLY_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             Apply Now
           </Button>
         </div>
@@ -375,33 +407,33 @@ export default function Page() {
       >
         <div className="grid gap-6 md:grid-cols-2">
           {founders.map((p) => (
-            <Card key={p.name} className="overflow-hidden">
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="text-xl font-semibold text-white">
-                      {p.name}
-                    </div>
-                    <div className="mt-1 text-sm font-semibold text-fu">
-                      {p.role}
-                    </div>
-                  </div>
-                  <a
-                    href={p.link}
-                    className="rounded-full bg-white/5 px-4 py-2 text-xs font-semibold text-white/75 ring-1 ring-white/10 hover:bg-white/8"
-                  >
-                    Connect
-                  </a>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-white/65">
-                  {p.bio}
-                </p>
+            <Card
+              key={p.name}
+              className="group overflow-hidden transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform hover:-translate-y-1 hover:shadow-glow hover:ring-fu/35"
+            >
+              <div className="relative aspect-[16/11] overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  className="h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/0" />
               </div>
-              <div className="h-px bg-white/10" />
-              <div className="p-6">
-                <div className="text-xs font-semibold text-white/60">
-                  Operator-first mentorship • Weekly reviews • Founder-friendly
+
+              <div className="flex items-center justify-between gap-4 p-6">
+                <div>
+                  <div className="text-lg font-semibold text-white">
+                    {p.name}
+                  </div>
+                  <div className="mt-1 text-sm font-semibold text-fu">
+                    {p.role}
+                  </div>
                 </div>
+                <img
+                  src={p.logo}
+                  alt=""
+                  className="h-9 w-auto opacity-90"
+                />
               </div>
             </Card>
           ))}
@@ -469,81 +501,186 @@ export default function Page() {
         eyebrow="Structure & Timeline"
         title="From application to ₹20 Lakhs in your bank."
       >
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {timeline.map((t) => (
-            <Card key={t.step} className="h-full">
-              <div className="p-6">
-                <div className="flex items-center justify-between">
-                  <div className="text-sm font-black text-fu">{t.step}</div>
-                  <div className="text-xs font-semibold text-white/55">
-                    {t.meta}
-                  </div>
+            <div
+              key={t.step}
+              className={[
+                "group h-full rounded-3xl bg-white/[0.03] p-7 ring-1 ring-white/10 backdrop-blur",
+                "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
+                "hover:-translate-y-1 hover:bg-white/[0.045] hover:ring-fu/35 hover:shadow-glow"
+              ].join(" ")}
+            >
+              <div className="flex items-center gap-4">
+                <div className="text-4xl font-black leading-none text-fu/35 transition duration-200 group-hover:text-fu/60 group-hover:drop-shadow-[0_0_18px_rgba(218,255,1,0.35)]">
+                  {t.step}
                 </div>
-                <div className="mt-3 text-base font-semibold text-white">
-                  {t.title}
-                </div>
-                <div className="mt-2 text-sm leading-relaxed text-white/65">
-                  {t.desc}
-                </div>
+                <div className="h-px flex-1 bg-white/10" />
               </div>
-            </Card>
+
+              <div className="mt-6 text-lg font-semibold text-white">
+                {t.title}
+              </div>
+              <div className="mt-2 text-sm font-semibold text-fu">{t.meta}</div>
+              <div className="mt-4 text-sm leading-relaxed text-white/60">
+                {t.desc}
+              </div>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section
-        eyebrow="90-Day Program Structure"
-        title="Tailored milestones based on your startup type."
-        description="Revenue-positive for consumer brands. MVP/POC ready for deep tech & manufacturing."
-      >
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {phases.map((p) => (
-            <Card key={p.phase} className="h-full">
-              <div className="p-6">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="text-xs font-semibold text-fu">{p.phase}</div>
-                  <div className="text-xs font-semibold text-white/55">
-                    {p.weeks}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl">
+              90-Day Program Structure
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
+              Tailored milestones: Revenue-positive for consumer brands. MVP/POC
+              ready for deep tech &amp; manufacturing.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            {phases.map((p, idx) => {
+              const isFinal = idx === phases.length - 1;
+              const isHighlighted = idx === phases.length - 1;
+
+              return (
+                <div key={p.phase} className="group relative h-full">
+                  <div
+                    className={[
+                      "h-full rounded-3xl bg-white/[0.03] p-7 ring-1 backdrop-blur",
+                      "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
+                      "group-hover:-translate-y-1 group-hover:bg-white/[0.045]",
+                      isHighlighted
+                        ? "ring-fu/70 shadow-glow group-hover:ring-fu/80 group-hover:shadow-glowStrong"
+                        : "ring-white/10 group-hover:ring-fu/35 group-hover:shadow-glow"
+                    ].join(" ")}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <span
+                        className={[
+                          "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold",
+                          isHighlighted
+                            ? "bg-fu text-black ring-1 ring-black/15"
+                            : "bg-fu/10 text-fu ring-1 ring-fu/20"
+                        ].join(" ")}
+                      >
+                        {p.phase}
+                      </span>
+                      <span className="text-xs font-semibold text-white/55">
+                        {p.weeks}
+                      </span>
+                    </div>
+
+                    <div className="mt-6 text-xl font-semibold text-white">
+                      {p.title}
+                    </div>
+
+                    <ul className="mt-6 space-y-3">
+                      {p.bullets.map((b) => (
+                        <li key={b} className="flex gap-3 text-sm text-white/70">
+                          <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full ring-1 ring-fu/35 text-fu">
+                            <CheckIcon className="h-4 w-4" />
+                          </span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
+
+                  {!isFinal ? (
+                    <div className="absolute -right-4 top-1/2 hidden h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-black/35 text-white/50 ring-1 ring-white/10 backdrop-blur transition duration-200 group-hover:text-fu group-hover:ring-fu/35 group-hover:shadow-glow lg:grid">
+                      <ArrowRightIcon />
+                    </div>
+                  ) : null}
                 </div>
-                <div className="mt-3 text-base font-semibold text-white">
-                  {p.title}
-                </div>
-                <div className="mt-4">
-                  <BulletList items={p.bullets} />
-                </div>
-              </div>
-            </Card>
-          ))}
+              );
+            })}
+          </div>
         </div>
-      </Section>
+      </section>
 
       <Section
         eyebrow="Operator-Led Model"
-        title="Each startup is guided by Aman and a dedicated Operator Mentor."
-        description="Real operators helping you build. Not passive advisors."
+        title="Each startup is guided by Aman and a dedicated Operator Mentor—founders who've built and scaled real businesses."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
-          {operatorModel.map((o) => (
-            <Card key={o.title} className="h-full">
-              <CardHeader title={o.title} subtitle={o.desc} />
-            </Card>
-          ))}
+        <div className="flex items-center gap-3 text-white/85">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20">
+            <UsersIcon />
+          </span>
+          <span className="text-lg font-semibold">How operators help you:</span>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {[
-            "Direct access to Aman Gupta",
-            "Dedicated operator mentor pairing",
-            "Weekly structured check-ins"
-          ].map((t) => (
-            <div
-              key={t}
-              className="rounded-[var(--radius)] bg-white/5 p-6 text-sm font-semibold text-white/80 ring-1 ring-white/10"
-            >
-              {t}
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <div className="space-y-4">
+            {operatorModel.map((o) => {
+              const Icon =
+                o.title === "Strategic Guide"
+                  ? CompassIcon
+                  : o.title === "Execution Partner"
+                    ? TargetIcon
+                    : TrendingUpIcon;
+
+              return (
+                <div
+                  key={o.title}
+                  className="rounded-2xl bg-white/[0.03] p-6 ring-1 ring-white/10 backdrop-blur"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-fu/10 text-fu ring-1 ring-fu/20">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-base font-semibold text-white">
+                        {o.title}
+                      </div>
+                      <div className="mt-1 text-sm text-white/60">{o.desc}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="relative overflow-hidden rounded-3xl bg-white/[0.03] ring-1 ring-fu/55 shadow-glow">
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-fu/10 blur-[80px]" />
+              <div className="absolute -left-28 -bottom-28 h-80 w-80 rounded-full bg-fu/8 blur-[110px]" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-black/10 to-black/35" />
             </div>
-          ))}
+
+            <div className="relative p-8">
+              <div className="text-lg font-semibold text-white">
+                What you get access to
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {[
+                  { label: "Direct access to Aman Gupta", icon: UsersIcon },
+                  { label: "Dedicated operator mentor pairing", icon: UsersIcon },
+                  { label: "Weekly structured check-ins", icon: CalendarIcon }
+                ].map((row) => (
+                  <div key={row.label} className="flex items-center gap-4">
+                    <div className="grid h-10 w-10 place-items-center rounded-2xl bg-black/40 text-fu ring-1 ring-white/10">
+                      <row.icon className="h-5 w-5" />
+                    </div>
+                    <div className="text-sm font-medium text-white/80">
+                      {row.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-7 h-px bg-white/10" />
+
+              <div className="mt-6 text-center text-sm font-semibold text-fu">
+                Real operators helping you build. Not passive advisors.
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -552,93 +689,126 @@ export default function Page() {
         title="Clear milestones, real outcomes."
         description="Different startup types, different paths—same momentum."
       >
-        <div className="grid gap-4 md:grid-cols-2">
-          {outcomes.map((o) => (
-            <Card key={o.title} className="h-full">
-              <CardHeader title={o.title} subtitle={o.desc} />
-            </Card>
-          ))}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {outcomes.map((o, idx) => {
+            const isHighlighted = idx === 0;
+            const Icon =
+              o.title === "Follow-on from Aman & MU"
+                ? TrendingUpIcon
+                : o.title === "Y Combinator Ready"
+                  ? RocketIcon
+                  : o.title === "Revenue Positive"
+                    ? RupeeIcon
+                    : ChipIcon;
+
+            return (
+              <div
+                key={o.title}
+                className={[
+                  "h-full rounded-3xl bg-white/[0.03] p-7 text-center ring-1 backdrop-blur",
+                  "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
+                  "hover:-translate-y-1 hover:bg-white/[0.045]",
+                  isHighlighted
+                    ? "ring-fu/70 shadow-glow hover:ring-fu/80 hover:shadow-glowStrong"
+                    : "ring-white/10 hover:ring-fu/35 hover:shadow-glow"
+                ].join(" ")}
+              >
+                <div
+                  className={[
+                    "mx-auto grid h-14 w-14 place-items-center rounded-2xl ring-1",
+                    isHighlighted
+                      ? "bg-fu text-black ring-black/15"
+                      : "bg-fu/10 text-fu ring-fu/20"
+                  ].join(" ")}
+                >
+                  <Icon className="h-6 w-6" />
+                </div>
+
+                <div className="mt-5 text-lg font-semibold text-white">
+                  {o.title}
+                </div>
+                <div className="mt-3 text-sm leading-relaxed text-white/55">
+                  {o.desc}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <Card>
-            <CardHeader
-              title="Consumer Brands"
-              subtitle="Goal: Revenue-positive with proven unit economics."
-            />
-          </Card>
-          <Card>
-            <CardHeader
-              title="Deep Tech & Manufacturing"
-              subtitle="Goal: MVP ready or proof of concept validated."
-            />
-          </Card>
+        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className="rounded-3xl bg-white/[0.03] p-8 text-center ring-1 ring-white/10 backdrop-blur transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform hover:-translate-y-1 hover:bg-white/[0.045] hover:ring-fu/30 hover:shadow-glow">
+            <div className="text-sm font-semibold text-fu">Consumer Brands</div>
+            <div className="mt-3 text-sm text-white/60">
+              Goal: Revenue-positive with proven unit economics
+            </div>
+          </div>
+          <div className="rounded-3xl bg-white/[0.03] p-8 text-center ring-1 ring-white/10 backdrop-blur transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform hover:-translate-y-1 hover:bg-white/[0.045] hover:ring-fu/30 hover:shadow-glow">
+            <div className="text-sm font-semibold text-fu">
+              Deep Tech &amp; Manufacturing
+            </div>
+            <div className="mt-3 text-sm text-white/60">
+              Goal: MVP ready or proof of concept validated
+            </div>
+          </div>
         </div>
       </Section>
 
       <Section
         id="benefits"
         eyebrow="What You Walk Away With"
-        title="Guaranteed funding and resources to build your startup."
+        title="What You Walk Away With"
+        description="Every founder who gets selected receives guaranteed funding and resources to build their startup"
       >
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-          <Card className="overflow-hidden">
-            <div className="p-8">
-              <div className="text-sm font-semibold text-white/60">
-                Founders&apos; Union
+        <div className="mx-auto grid max-w-5xl gap-10">
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { v: "₹20 Lakhs", l: "Guaranteed for every selected founder" },
+              { v: "20\nFounders", l: "Selected each cohort, no exceptions" },
+              { v: "90 Days", l: "Intensive program every quarter" }
+            ].map((x) => (
+              <div
+                key={x.l}
+                className={[
+                  "rounded-3xl bg-white/[0.03] p-8 text-center ring-1 ring-white/10 backdrop-blur",
+                  "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
+                  "hover:-translate-y-1 hover:bg-white/[0.045] hover:ring-fu/35 hover:shadow-glow"
+                ].join(" ")}
+              >
+                <div className="text-3xl font-semibold tracking-tight text-fu">
+                  {x.v.split("\n").map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-4 text-sm leading-relaxed text-white/70">
+                  {x.l}
+                </div>
               </div>
-              <div className="mt-3 text-3xl font-semibold tracking-tight text-white">
-                Seed Round / YC / Revenue
+            ))}
+          </div>
+
+          <div className="relative overflow-hidden rounded-3xl bg-white/[0.03] p-10 text-center ring-1 ring-fu/55 shadow-glow backdrop-blur">
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-fu/12 blur-[90px]" />
+              <div className="absolute -right-28 -bottom-28 h-80 w-80 rounded-full bg-fu/8 blur-[110px]" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-black/10 to-black/35" />
+            </div>
+
+            <div className="relative">
+              <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-black/35 ring-1 ring-white/10">
+                <img src="/icon.svg" alt="" className="h-9 w-9" />
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-white/65">
+              <div className="mt-6 text-2xl font-semibold tracking-tight text-white">
+                Your launchpad to the big leagues
+              </div>
+              <div className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/65">
                 After 90 days, you&apos;ll be ready for YC, Shark Tank India, or
                 any top accelerator in the world.
-              </p>
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                {[
-                  { v: "₹20 Lakhs", l: "Guaranteed" },
-                  { v: "20 Founders", l: "Per cohort" },
-                  { v: "90 Days", l: "Intensive" }
-                ].map((x) => (
-                  <div
-                    key={x.l}
-                    className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10"
-                  >
-                    <div className="text-base font-semibold text-white">
-                      {x.v}
-                    </div>
-                    <div className="mt-1 text-xs text-white/60">{x.l}</div>
-                  </div>
-                ))}
               </div>
             </div>
-          </Card>
-
-          <Card className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-fu/10 via-white/0 to-white/0" />
-            <div className="relative p-8">
-              <div className="text-lg font-semibold text-white">
-                What Every Founder Gets
-              </div>
-              <p className="mt-2 text-sm text-white/65">
-                Everything you need to focus 100% on building. We handle the
-                rest.
-              </p>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {everyFounderGets.map((b) => (
-                  <div
-                    key={b.title}
-                    className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10"
-                  >
-                    <div className="text-sm font-semibold text-white">
-                      {b.title}
-                    </div>
-                    <div className="mt-2 text-sm text-white/65">{b.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Card>
+          </div>
         </div>
       </Section>
 
@@ -651,35 +821,56 @@ export default function Page() {
       </Section>
 
       {/* Apply CTA */}
-      <section id="apply" className="border-t border-white/5">
-        <div className="container py-16">
-          <div className="rounded-[calc(var(--radius)+4px)] bg-gradient-to-br from-fu/18 via-white/5 to-white/5 p-10 ring-1 ring-white/10">
-            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-fu/12 px-4 py-2 text-xs font-semibold text-fu ring-1 ring-fu/20">
-                  Applications close <span className="text-white">25th Feb</span>
-                </div>
-                <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                  Ready to build for real?
-                </h3>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/65">
-                  Apply with or without an idea. If you’ve got hunger, we’ll
-                  give you capital, structure, and operator mentorship to get to
-                  YC/Shark Tank readiness.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-                <Button variant="primary" href="#apply">
-                  Apply Now <span aria-hidden="true">→</span>
-                </Button>
-                <Button variant="secondary" href="#timeline">
-                  See Timeline
-                </Button>
-              </div>
+      <section id="apply" className="py-16 md:py-24">
+        <div className="container">
+          <div className="relative overflow-hidden rounded-[32px] bg-white/[0.03] ring-1 ring-fu/45 shadow-glow">
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-fu/12 blur-[80px]" />
+              <div className="absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-fu/8 blur-[110px]" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] via-black/10 to-black/40" />
             </div>
-            <div className="mt-8 text-xs text-white/55">
-              By MU Ventures | Masters&apos; Union • Founder-friendly SAFE • No
-              board seats
+
+            <div className="relative px-6 py-14 md:px-14 md:py-20">
+              <div className="mx-auto max-w-3xl text-center">
+                <img
+                  src="/icon.svg"
+                  alt=""
+                  className="mx-auto h-16 w-16 rounded-2xl shadow-glowStrong ring-1 ring-black/25"
+                />
+
+                <h3 className="mt-8 text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl">
+                  Ready to earn your first{" "}
+                  <span className="text-fu">₹20 Lakhs</span>?
+                </h3>
+
+                <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
+                  Stop waiting for permission. Apply now and join the next
+                  cohort of India&apos;s most promising young founders.
+                </p>
+
+                <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-black/30 px-5 py-2 text-sm text-white/70 ring-1 ring-white/10 backdrop-blur">
+                  <ClockIcon className="text-fu" />
+                  <span>Applications close</span>
+                  <span className="font-semibold text-fu">25th February</span>
+                </div>
+
+                <div className="mt-8 flex justify-center">
+                  <Button
+                    variant="primary"
+                    href={APPLY_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-8 py-4 text-base shadow-glowStrong"
+                  >
+                    Apply to Founders&apos; Union <ArrowRightIcon />
+                  </Button>
+                </div>
+
+                <div className="mt-5 text-xs text-white/55">
+                  Free to apply • No equity taken at application • Results in
+                  15-20 days
+                </div>
+              </div>
             </div>
           </div>
         </div>

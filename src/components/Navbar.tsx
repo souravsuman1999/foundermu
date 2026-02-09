@@ -1,6 +1,8 @@
 import { Button } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 
+const APPLY_URL = "https://mastersunion.org/venture-form";
+
 const nav = [
   { label: "Program", href: "#program" },
   { label: "Team", href: "#team" },
@@ -29,7 +31,12 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="primary" href="#apply">
+          <Button
+            variant="primary"
+            href={APPLY_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             Apply Now
           </Button>
         </div>
