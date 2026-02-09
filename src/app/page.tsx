@@ -605,12 +605,12 @@ export default function Page() {
         }
         center
       >
-        <div className="-mx-2 flex gap-4 overflow-x-auto px-2 pb-2 hide-scrollbar md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {campusUsps.map((u) => (
             <div
               key={u.title}
               className={[
-                "group relative min-w-[280px] shrink-0 overflow-hidden rounded-3xl bg-white/[0.02] ring-1 ring-white/10 md:min-w-0",
+                "group relative overflow-hidden rounded-3xl bg-white/[0.02] ring-1 ring-white/10",
                 "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out will-change-transform",
                 "hover:-translate-y-1 hover:ring-fu/30 hover:shadow-glow"
               ].join(" ")}
