@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========
+   Theme tokens (edit these later)
+   ========= */
+:root {
+  --bg: 10 10 10;
+  --fg: 245 245 245;
+  --muted: 163 163 163;
+  --card: 18 18 18;
+  --border: 255 255 255;
+  --fu: 218 255 1; /* Founders' Union accent */
+
+  --radius: 18px;
+  --container: 1120px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--fg));
+  background: rgb(var(--bg));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: geometricPrecision;
+}
+
+* {
+  scrollbar-color: rgb(218 255 1 / 0.25) rgb(255 255 255 / 0.06);
+}
+
+/* Smooth in-page anchor jumps */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Soft focus outline for keyboard users */
+:focus-visible {
+  outline: 2px solid rgb(var(--fu) / 0.75);
+  outline-offset: 2px;
+}
+
+/* =========
+   Utility helpers
+   ========= */
+.container {
+  width: min(var(--container), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.noise {
+  position: relative;
+}
+.noise:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.ring-border {
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.09) inset;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Hide scrollbars on pills row (mobile) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
