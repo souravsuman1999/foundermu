@@ -4,7 +4,7 @@ import { Logo } from "@/components/Logo";
 const APPLY_URL = "https://mastersunion.org/venture-form";
 
 const nav = [
-  { label: "Program", href: "#program" },
+  { label: "Programme", href: "#program" },
   { label: "Team", href: "#team" },
   { label: "Timeline", href: "#timeline" },
   { label: "Mentors", href: "#mentors" },

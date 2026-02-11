@@ -23,7 +23,7 @@ const APPLY_URL = "https://mastersunion.org/venture-form";
 
 const heroBadges = [
   "₹20 Lakhs via SAFE",
-  "90 Days Program",
+  "90 Days Programme",
   "Operator Mentors",
   "Full Residency"
 ];
@@ -369,10 +369,10 @@ export default function Page() {
             </div>
 
             <h1 className="mt-8 text-balance text-4xl font-semibold tracking-tight text-white md:text-6xl">
-              The first ₹20 Lakhs is the
+              The First ₹20 Lakhs is the
               <br />
-              hardest to raise.
-              <span className="block text-fu">We make it happen.</span>
+              Hardest to Raise.
+              <span className="block text-fu">We Make It Happen.</span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
@@ -451,8 +451,8 @@ export default function Page() {
 
       <Section
         id="program"
-        eyebrow="You don’t need an idea. You need a launchpad."
-        title="Whether you're sitting on a startup idea or just know you're meant to build something—we're here for you."
+        eyebrow="You Don't Need an Idea. You Need a Launchpad."
+        title="Whether You're Sitting on a Startup Idea or Just Know You're Meant to Build Something—We're Here for You."
         description="Most programmes want traction. We want potential."
       >
         <div className="grid gap-6 md:grid-cols-2">
@@ -488,7 +488,7 @@ export default function Page() {
 
       <Section
         eyebrow="No Large Equity. Founder-Friendly Terms."
-        title="We’re not here to take a chunk of your company."
+        title="We're Not Here to Take a Chunk of Your Company."
         description="The ₹20 Lakhs comes via a SAFE note with terms that won’t hurt you later."
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -503,7 +503,7 @@ export default function Page() {
       <Section
         id="team"
         eyebrow="The Founding Team"
-        title="Built by operators who’ve been there, done that."
+        title="Built by Operators Who've Been There, Done That."
       >
         <div className="grid gap-6 md:grid-cols-2">
           {founders.map((p) => (
@@ -561,7 +561,7 @@ export default function Page() {
       <Section
         id="mentors"
         eyebrow="World-Class Mentors"
-        title="Learn from founders who’ve built billion-dollar companies."
+        title="Learn from Founders Who've Built Billion-Dollar Companies."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {mentors.map((m) => (
@@ -592,14 +592,14 @@ export default function Page() {
       </Section>
 
       <Section
-        title="Your Home for 90 Days"
+        title="Your Home for 90 Days."
         description={
           <span className="inline-flex items-center justify-center gap-2">
             <span className="hidden h-8 w-8 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20 md:grid">
               <CompassIcon className="h-4 w-4" />
             </span>
             <span>
-              Work, live, and build at the Masters&apos; Union campus in Gurugram
+              Work, live, and build at the Masters&apos; Union campus in Gurugram.
             </span>
           </span>
         }
@@ -656,7 +656,7 @@ export default function Page() {
       <Section
         id="timeline"
         eyebrow="Structure & Timeline"
-        title="From application to ₹20 Lakhs in your bank."
+        title="From Application to ₹20 Lakhs in Your Bank."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {timeline.map((t) => (
@@ -691,7 +691,7 @@ export default function Page() {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl">
-              90-Day Programme Structure
+              90-Day Programme Structure.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
               Tailored milestones: Revenue-positive for consumer brands. MVP/POC
@@ -762,7 +762,7 @@ export default function Page() {
 
       <Section
         eyebrow="Operator-Led Model"
-        title="Each startup is guided by Aman and a dedicated Operator Mentor—founders who've built and scaled real businesses."
+        title="Each Startup is Guided by Aman and a Dedicated Operator Mentor—Founders Who've Built and Scaled Real Businesses."
       >
         <div className="flex items-center gap-3 text-white/85">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20">
@@ -843,7 +843,7 @@ export default function Page() {
 
       <Section
         eyebrow="Where This Takes You"
-        title="Clear milestones, real outcomes."
+        title="Clear Milestones, Real Outcomes."
         description="Different startup types, different paths—same momentum."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -913,15 +913,15 @@ export default function Page() {
       <Section
         id="benefits"
         eyebrow="What You Walk Away With"
-        title="What You Walk Away With"
-        description="Every founder who gets selected receives guaranteed funding and resources to build their startup"
+        title="What You Walk Away With."
+        description="Every founder who gets selected receives guaranteed funding and resources to build their startup."
       >
         <div className="mx-auto grid max-w-5xl gap-10">
 
           <div className="grid gap-6 md:grid-cols-3">
             {[
               { v: "₹20 Lakhs", l: "Guaranteed for every selected founder" },
-              { v: "20\nFounders", l: "Selected each cohort, no exceptions" },
+              { v: "20 Founders", l: "Selected each cohort, no exceptions" },
               { v: "90 Days", l: "Intensive programme every quarter" }
             ].map((x) => (
               <div
@@ -958,7 +958,7 @@ export default function Page() {
                 <img src="/icon.svg" alt="" className="h-9 w-9" />
               </div>
               <div className="mt-6 text-2xl font-semibold tracking-tight text-white">
-                Your launchpad to the big leagues
+                Your launchpad to the big leagues.
               </div>
               <div className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/65">
                 After 90 days, you&apos;ll be ready for YC, Shark Tank India, or
@@ -972,7 +972,7 @@ export default function Page() {
       <Section
         id="faq"
         eyebrow="Frequently Asked Questions"
-        title="Got questions? We’ve got answers."
+        title="Got Questions? We've Got Answers."
       >
         <Faq items={faq} />
       </Section>
