@@ -65,7 +65,7 @@ const safeTerms = [
   },
   {
     title: "Founder-Friendly",
-    subtitle: "Terms designed to not hurt future fundraises."
+    subtitle: "Terms designed not to hurt future fundraises."
   }
 ];
 
@@ -101,55 +101,55 @@ const mentors = [
   },
   {
     name: "Vatsalya Tandon",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/1.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/1.webp"
   },
   {
     name: "Divya Gupta",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/2.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/2.webp"
   },
   {
     name: "Sahil Kumrah",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/3.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/3.webp"
   },
   {
     name: "Niyati Raval",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/4.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/4.webp"
   },
   {
     name: "Alok Anand",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/5.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/5.webp"
   },
   {
     name: "Shubham Jain",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/6.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/6.webp"
   },
   {
     name: "Jayant Singhal",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/7.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/7.webp"
   },
   {
     name: "Archit Bhargav",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/8.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/8.webp"
   },
   {
     name: "Gautam Marwah",
-    title: "Investment Proffessional",
+    title: "Investment Professional",
     image: "https://images.mastersunion.link/uploads/09022026/v1/9.webp",
     logo: "https://images.mastersunion.link/uploads/09022026/v2/9.webp"
   }
@@ -208,7 +208,7 @@ const timeline = [
   },
   {
     step: "04",
-    title: "Program Starts",
+    title: "Programme Starts",
     meta: "5th April",
     desc: "90-day intensive execution phase begins."
   },
@@ -319,8 +319,8 @@ const faq = [
     a: "It depends on your startup type. Consumer brands should aim for revenue-positive status. Deep tech and manufacturing startups should have MVP or proof of concept ready. Top performers may get follow-on investment from Aman or Masters’ Union for their seed round."
   },
   {
-    q: "Is this a full-time program?",
-    a: "Yes, Founders’ Union is a full-time, in-residence 90-day program at the Masters’ Union campus in Gurugram. You’ll live and work on campus."
+    q: "Is this a full-time programme?",
+    a: "Yes, Founders’ Union is a full-time, in-residence 90-day programme at the Masters’ Union campus in Gurugram. You’ll live and work on campus."
   },
   {
     q: "What happens after the 90 days?",
@@ -369,7 +369,7 @@ export default function Page() {
             </div>
 
             <h1 className="mt-8 text-balance text-4xl font-semibold tracking-tight text-white md:text-6xl">
-              The first ₹20 lakhs is the
+              The first ₹20 Lakhs is the
               <br />
               hardest to raise.
               <span className="block text-fu">We make it happen.</span>
@@ -429,7 +429,7 @@ export default function Page() {
                 key={s.label}
                 className="rounded-[var(--radius)] bg-white/5 p-6 ring-1 ring-white/10"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col items-center gap-3 text-center md:flex-row md:text-left">
                   <span
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-fu/10 text-fu ring-1 ring-fu/20"
                     aria-hidden="true"
@@ -453,7 +453,7 @@ export default function Page() {
         id="program"
         eyebrow="You don’t need an idea. You need a launchpad."
         title="Whether you're sitting on a startup idea or just know you're meant to build something—we're here for you."
-        description="Most programs want traction. We want potential."
+        description="Most programmes want traction. We want potential."
       >
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
@@ -691,7 +691,7 @@ export default function Page() {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl">
-              90-Day Program Structure
+              90-Day Programme Structure
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/65 md:text-lg">
               Tailored milestones: Revenue-positive for consumer brands. MVP/POC
@@ -922,7 +922,7 @@ export default function Page() {
             {[
               { v: "₹20 Lakhs", l: "Guaranteed for every selected founder" },
               { v: "20\nFounders", l: "Selected each cohort, no exceptions" },
-              { v: "90 Days", l: "Intensive program every quarter" }
+              { v: "90 Days", l: "Intensive programme every quarter" }
             ].map((x) => (
               <div
                 key={x.l}
@@ -996,7 +996,7 @@ export default function Page() {
                 />
 
                 <h3 className="mt-8 text-balance text-4xl font-semibold tracking-tight text-white md:text-5xl">
-                  Ready to earn your first{" "}
+                  Ready to raise your first{" "}
                   <span className="text-fu">₹20 Lakhs</span>?
                 </h3>
 
@@ -1045,7 +1045,7 @@ export default function Page() {
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-white/60">
             {[
-              { label: "Program", href: "#program" },
+              { label: "Programme", href: "#program" },
               { label: "Team", href: "#team" },
               { label: "Timeline", href: "#timeline" },
               { label: "FAQ", href: "#faq" }
